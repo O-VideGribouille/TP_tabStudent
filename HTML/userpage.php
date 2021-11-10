@@ -229,23 +229,23 @@
             <!-- -->
             <form action="" method="post">
                    <table class="table table-striped">
-                       <thead>
-                            <th class="tpTab t2">
+                       <thead class="t2">
+                            <th class="tpTab">
                                 Matière
                             </th>
 
 
-                            <th class="tpTab t2">
+                            <th class="tpTab">
                                 Etudiant.e
                             </th>
 
 
-                            <th class="tpTab t2">
+                            <th class="tpTab">
                                 Note
                             </th>
 
 
-                            <th class="tpTab t2">
+                            <th class="tpTab">
                                 Editer
                             </th>
                            
@@ -266,8 +266,8 @@
                             foreach ($connexionBDD->query($reqP) as $row) {
                                 echo "
                     
-                                    <tr>
-                                        <td class=\"tpTab t1\">
+                                    <tr class=\"t1\">
+                                        <td class=\"tpTab\">
 
 
                                             ".$row['LBLLMTR']."              
@@ -276,7 +276,7 @@
                                 echo "
                     
                                         
-                                            <td class=\"tpTab t1\">
+                                            <td class=\"tpTab\">
 
 
                                                 ".$row['NOM']." ".$row['PRENOM']."              
@@ -285,7 +285,7 @@
                                 echo "
                     
                                         
-                                            <td class=\"tpTab t1\">
+                                            <td class=\"tpTab\">
 
 
                                                 ".$row['VALEUR']."                
@@ -295,7 +295,7 @@
                                 echo "
                     
                                         
-                                            <td class=\"tpTab t1 chk\">
+                                            <td class=\"tpTab chk\">
 
                                             <input type=\"text\" name=\"bttn1[]\" disabled required>
 
@@ -371,18 +371,18 @@
             <!-- -->
            
                    <table class="table table-striped">
-                       <thead>
-                            <th class="tpTab t2">
+                       <thead class="t2">
+                            <th class="tpTab">
                                 Matière
                             </th>
 
 
-                            <th class="tpTab t2">
+                            <th class="tpTab">
                                 Etudiant.e
                             </th>
 
 
-                            <th class="tpTab t2">
+                            <th class="tpTab">
                                 Moyenne
                             </th>
                            
@@ -404,8 +404,8 @@
                             foreach ($connexionBDD->query($reqP) as $row) {
                                 echo "
                     
-                                    <tr>
-                                        <td class=\"tpTab t1\">
+                                    <tr class=\"t1\">
+                                        <td class=\"tpTab\">
 
 
                                             ".$row['LBLLMTR']."              
@@ -414,7 +414,7 @@
                                 echo "
                     
                                         
-                                            <td class=\"tpTab t1\">
+                                            <td class=\"tpTab\">
 
 
                                                 ".$row['NOM']." ".$row['PRENOM']."              
@@ -425,7 +425,7 @@
                                 echo "
                     
                                         
-                                            <td class=\"tpTab t1\">
+                                            <td class=\"tpTab\">
 
                                                 ".$row['MOYENNE']." 
                                                                
