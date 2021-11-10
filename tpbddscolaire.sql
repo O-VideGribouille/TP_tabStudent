@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 10 nov. 2021 à 12:46
+-- Généré le : mer. 10 nov. 2021 à 14:10
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -176,8 +176,8 @@ INSERT INTO `note` (`IDNT`, `IDUSR`, `IDMTR`, `LBLLNT`, `VALEUR`) VALUES
 (29, 7, 1, 'TP', 18),
 (30, 8, 2, 'TP', 17),
 (31, 8, 3, 'TP', 13),
-(32, 1, 2, 'TP', 13),
-(33, 3, 1, 'TP', 14),
+(32, 8, 2, 'TP', 13),
+(33, 7, 1, 'TP', 14),
 (34, 5, 2, 'TP', 1);
 
 -- --------------------------------------------------------
