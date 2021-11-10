@@ -29,16 +29,20 @@
 
     <style >
         /*spécial tableau*/
-    .tpTab{
+    .tpTab, .t1{
 
             border:3px solid black;
             padding: 4% 2%;
         }
 
-        .tpTab:hover {
+
+        .t1:hover {
             border: 1px solid black;
             opacity: 50%;
         }
+
+        .t1:nth-child(even) {background: #006064}
+        .t1:nth-child(odd) {background: #00BFA5}
 
 
     </style>
@@ -259,7 +263,7 @@
                                 echo "
                     
                                     <tr>
-                                        <td class=\"tpTab\">
+                                        <td class=\"tpTab t1\">
 
 
                                             ".$row['LBLLMTR']."              
@@ -268,7 +272,7 @@
                                 echo "
                     
                                         
-                                            <td class=\"tpTab\">
+                                            <td class=\"tpTab t1\">
 
 
                                                 ".$row['NOM']." ".$row['PRENOM']."              
@@ -277,7 +281,7 @@
                                 echo "
                     
                                         
-                                            <td class=\"tpTab\">
+                                            <td class=\"tpTab t1\">
 
 
                                                 ".$row['VALEUR']."                
@@ -287,7 +291,7 @@
                                 echo "
                     
                                         
-                                            <td class=\"tpTab chk\">
+                                            <td class=\"tpTab t1 chk\">
 
                                             <input type=\"text\" name=\"bttn1[]\" disabled required>
 
