@@ -1,0 +1,65 @@
+.DivArticle{
+
+	width: 88%;
+	margin: 3% 4% 10% 4%;
+	padding: 1% 2% 3% 2%;
+	
+	background-color: #FF8A80; /*#26A69A*/
+	opacity: 95%;
+	border-radius: 30px;
+
+/*	display: flex; */
+	
+	box-shadow: 0px 6px 0px #ea8077, 
+	0px 12px 0px #cc7269, 
+	0px 85px 50px -58px #006064d1;
+
+/*	0px 6px 0px #ea8077, 
+	0px 12px 0px #cc7269, 
+	0 45px 20px -20px #006064; */
+
+}
+
+
+
+/* test transition couleur par passage de souris
+
+div{
+     background-color: #DEEDEA;
+    
+     transition: background-color 1s;
+}
+div:hover{
+     background-color: steelblue;
+}*/
+
+
+.lienV{
+     color: #006064;
+    /*text-decoration: none;*/
+ }
+
+
+/* Text & Font */
+
+
+
+h1, h2, h3 {
+
+	font-family: Pacifico;
+	font-weight: 400;
+	/* text-transform: uppercase; */
+}
+
+h4, h5, h6 {
+	font-family: Open Sans Condensed, sans-serif;
+}
+
+p, pre {
+
+	font-family: Open Sans Condensed, sans-serif;
+	/* text-align: center; */
+	line-height: 3em;
+
+}
+

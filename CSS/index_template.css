@@ -1,0 +1,228 @@
+/* thème couleurs : #92B9BD (basic), #5F9DA3 (foncé), #7AD0CD (clair), #C8E4E1 (très clair), #DEEDEA (très, très clair)
+
+thème 2 : #FFF3E0 , #00BFA5 , #FF8A80 , #006064 , #FFF8E1
+
+thème 3 : #FFF3E0 , #424242 , #26A69A , #C8E6C9 , #BCAAA4
+
+
+*/
+
+*{box-sizing: border-box;
+padding: 0;
+margin: 0;}
+
+
+
+
+/*permet de fixer le footer en bas de la page */
+
+html, body { 
+	height: 100%;
+	margin: 0; 
+	padding: 0;	
+}
+
+
+
+
+
+
+
+/* HEADER */
+
+
+header {
+/*	border-radius: 0% 0% 95% 0%;*/
+
+
+	background-color: #006064 ; /*#C8E6C9 // #C8E4E1 */
+
+	color : #00BFA5; /* #424242 // #5F9DA3 */
+}
+
+
+
+nav {
+	margin: -1.3% 5% 5% 5%;
+	width: auto;
+	height: auto;
+}
+
+
+#Ul_nav {
+	display: flex;
+	list-style-type: none;
+	flex-wrap: nowrap;
+	align-items: flex-end;
+	justify-content: center;
+}
+
+/*utiliser child de UL_nav pour déplacer le logo central*/
+
+.list_nav {
+
+	width: 105px;
+	/*height: 25px;*/
+	
+    margin: 4% 3% 0.5% 3%;
+    padding: 1% 0.8% 1% 0.8%;
+
+	position: relative;
+	outline: none;
+
+}
+
+
+.btn{
+	
+	color: #FF8A80;
+	font-family: Open Sans Condensed, sans-serif;
+	background-color: transparent;
+
+	width: auto;
+	height: auto;
+
+	margin: -12% 0% 0.5% 0%;
+    padding: 1% 0.8% 1% 0.8%;
+    text-decoration: none;
+    font-size: 16px;
+    position: absolute;
+    z-index: 5;
+}
+
+
+/*bouton à effet*/
+.btn-2::after, .btn-2::before {
+	border: 3px solid #FF8A80;
+	border-radius: 15px;
+	content: "";
+	position: absolute;
+	width: calc(100% - 6px);
+	height: calc(100% - 6px);
+	left: 0;
+	bottom: 0;
+	z-index: 0;
+	transition: transform 0.3s ease ;
+
+}
+
+.btn-2:hover::after {
+	transform: translate(-5px, -5px);
+	opacity: 50%;
+}
+
+.btn-2:hover::before {
+	transform: translate(5px, 5px);
+	opacity: 50%;
+}
+
+
+
+#logo1 {
+
+	width: 15%;
+	height: 15%;
+	border: none;
+	border-radius: 12px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* BODY */
+
+
+body {
+
+	/*permet de fixer le foter en bas de la page */
+	display : table;
+	width: 100%;
+
+
+
+	background-color: #FFF3E0; /* no change */
+
+/*	background-image: linear-gradient(#FFF3E0 30%, #006064);*/
+
+color: #FFF8E1; /* #BCAAA4 */
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*FOOTER - ok*/
+
+#tabF {
+	    width: 1510px;
+	    margin: 0% 1% 0% 1%;
+
+	    
+}
+
+.Tvide {
+	/*border: solid;*/
+	width: 860px;
+
+}
+
+
+
+footer {
+
+	/*permet de fixer le foter en bas de la page */
+	display : table-row;
+
+
+	background-color: #006064 ; /*#C8E6C9*/
+
+
+	/* Font */
+	font-family: Open Sans Condensed, sans-serif;
+	color : #00BFA5; /* #424242 */
+	font-size: 12px;
+
+
+}
+
+#thF1 {
+	font-family: Pacifico;
+	font-weight: 400;
+	font-size: 1.5em;
+}
+
+
+
+
+
+
