@@ -28,7 +28,7 @@
     <link href='https://fonts.googleapis.com/css?family=Pacifico:400' rel='stylesheet' type='text/css'>
 
     <style >
-        /*spécial tableau*/
+        /*concerne tableau*/
     .tpTab, .t1{
 
             border:3px solid black;
@@ -167,7 +167,7 @@
                             WHERE IDNT = :NOTE ;';
 
                             try{
-                                //requête préparer
+                                //requête préparée
                                 $stmt = $connexionBDD->prepare($reqUpdate);
 
                                 //
@@ -179,7 +179,7 @@
                                 $stmt->execute();
 
                                 //Indication de la mise à jour faite
-                                echo "<p>Mise à jour effectué</p>";
+                                echo "<p>Mise à jour effectué</p>"; //LE RENDRE VISIBLE, EN FAIRE UN ALERT!
 
 
                             } // fin try
@@ -188,7 +188,6 @@
                                 echo 'Erreur : '.$e->getMessage();
                             }// fin Catch
 
-                      //} //Fin foreach
 
                     } //fin fonction
 
@@ -213,7 +212,7 @@
             <!-- -->
             <!-- -->
 
-            <h1 id="Title1" name="Title1" class="Title_A">Exercice</h1>
+            <h1 id="Title1" name="Title1" class="Title_A">Tableau Editable</h1>
             <!-- -->
             <!-- -->
 
@@ -355,7 +354,7 @@
             <!-- -->
             <!-- -->
 
-            <h1 id="Title3" name="Title3" class="Title_A">Exercice</h1>
+            <h1 id="Title3" name="Title3" class="Title_A">Tableau Moyenne</h1>
             <!-- -->
             <!-- -->
 
@@ -431,7 +430,7 @@
                                                                
                                              </td>"; 
 
-                                             //td class chk -> ne peut pas être modifié
+                                             
                               
 
                             }
