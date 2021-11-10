@@ -135,39 +135,36 @@
 
 <?php
 
-         
+       
              //modification d'une note
              if(isset($_POST['Valider'])){
 
                 if(isset($_POST['bttn2'])){
 
-                    //Recupération donnée ?
-                  // $reqSubmit = 
+                    
 
-                   // foreach($connexionBDD->query($reqSubmit) as $row){
 
 
                         //toutes les virification sont faites
                         $POST = $_POST;
+                       // var_dump($POST);
 
                         //fonction de modification
-                        function UpdateNote($connexionBDD, $POST){
+                        function UpdateNote($connexionBDD, $B2, $B1){
 
                             //Mise à jour de la note
 
                             $reqUpdate = 'UPDATE note
                             SET VALEUR = :VALEUR
-                            WHERE IDUSR = \''.$row['IDUSR'].'\'
-                            AND IDNT = \''.$row['IDNT'].'\'
-
-                            ';
+                            WHERE IDNT = :NOTE ;';
 
                             try{
                                 //requête préparer
                                 $stmt = $connexionBDD->prepare($reqUpdate);
 
                                 //
-                                $stmt->binvalue(':VALEUR', $row['VALEUR'], PDO::PARAM_INT);
+                                $stmt->bindValue(':VALEUR', $B1, PDO::PARAM_INT);
+                                $stmt->bindValue(':NOTE', $B2, PDO::PARAM_INT);
 
 
                                 //Exécuter la requête
@@ -188,14 +185,18 @@
                     } //fin fonction
 
                     //Enregistrement dans la base de donnée :
-                    UpdateNote($connexionBDD, $POST);
+
+                    for ($i=0; $i < sizeof($POST["bttn1"]); $i++) { 
+                        UpdateNote($connexionBDD, $POST["bttn2"][$i],$POST["bttn1"][$i]);
+                    }
+
 
                 } //fin isset bttn2
 
 
              } // fin isset Valider
 
-             ?>
+             ?> 
 
 
 
@@ -218,108 +219,233 @@
 
             <!-- -->
             <!-- -->
-           <table class="table table-striped">
-               <thead>
-                    <th class="tpTab">
-                        Matière
-                    </th>
+            <form action="" method="post">
+                   <table class="table table-striped">
+                       <thead>
+                            <th class="tpTab">
+                                Matière
+                            </th>
 
 
-                    <th class="tpTab">
-                        Etudiant.e
-                    </th>
+                            <th class="tpTab">
+                                Etudiant.e
+                            </th>
 
 
-                    <th class="tpTab">
-                        Note
-                    </th>
+                            <th class="tpTab">
+                                Note
+                            </th>
 
 
-                    <th class="tpTab">
-                        Editer
-                    </th>
-                   
-               </thead>
-               <!-- -->
-                <!-- -->
-                <tbody>
+                            <th class="tpTab">
+                                Editer
+                            </th>
+                           
+                       </thead>
+                       <!-- -->
+                        <!-- -->
+                        <tbody>
 
-                    <?php  ///---/// 
+                            <?php  ///---/// 
 
-                    $reqP= 'SELECT DISTINCT NOM, PRENOM, LBLLMTR, VALEUR
-                             FROM user, matiere, note
-                             WHERE matiere.IDMTR = note.IDMTR
-                             AND user.IDUSR = note.IDUSR
-                             ORDER BY NOM ASC';
-
-                    $reqMTR = '';
-
-                    $reqUSR ='';
-
-                    $reqNT = '';
-
-                    foreach ($connexionBDD->query($reqP) as $row) {
-                        echo "
-            
-                            <tr>
-                                <td class=\"tpTab\">
+                            $reqP= 'SELECT DISTINCT NOM, PRENOM, LBLLMTR, VALEUR, IDNT
+                                     FROM user, matiere, note
+                                     WHERE matiere.IDMTR = note.IDMTR
+                                     AND user.IDUSR = note.IDUSR
+                                     ORDER BY NOM ASC';
 
 
-                                    ".$row['LBLLMTR']."              
-                                </td> ";
-
-                        echo "
-            
-                                
-                                    <td class=\"tpTab\">
-
-
-                                        ".$row['NOM']." ".$row['PRENOM']."              
-                                    </td> "; 
-
-                        echo "
-            
-                                
-                                    <td class=\"tpTab\">
-
-
-                                        ".$row['VALEUR']."                
-                                     </td>"; 
-
-
-                        echo "
-            
-                                
-                                    <td class=\"tpTab\">
-
-                                    <input type=\"text\" name=\"bttn1[]\">
-
-                                    <input type=\"checkbox\" name=\"bttn2[]\">
-                                                        
-                                    </td> "; 
-
-
-                    }
-
-
-
-
-
-            ?> 
-
+                            foreach ($connexionBDD->query($reqP) as $row) {
+                                echo "
                     
+                                    <tr>
+                                        <td class=\"tpTab\">
 
 
-                </tbody>
+                                            ".$row['LBLLMTR']."              
+                                        </td> ";
 
-           </table>
-            <!-- -->
-            <!-- -->
-             <input type="submit" name="Valider" value="valider">
+                                echo "
+                    
+                                        
+                                            <td class=\"tpTab\">
 
 
+                                                ".$row['NOM']." ".$row['PRENOM']."              
+                                            </td> "; 
+
+                                echo "
+                    
+                                        
+                                            <td class=\"tpTab\">
+
+
+                                                ".$row['VALEUR']."                
+                                             </td>"; 
+
+                                             //td class chk -> ne peut pas être modifié
+                                echo "
+                    
+                                        
+                                            <td class=\"tpTab chk\">
+
+                                            <input type=\"text\" name=\"bttn1[]\" disabled required>
+
+                                            </td>
+
+                                            <td class=\"tpTa\">
+
+                                            <input type=\"checkbox\" name=\"bttn2[]\" onchange = \"ValCheck(this)\" value=\"".$row["IDNT"]."\">
+                                                                
+                                            </td> 
+
+                                            </tr>"; 
+
+
+                            }
+
+
+
+
+
+
+                    ?> 
+                    <script type="text/javascript">
+
+                        //rend éditable la note et ne prend pas en compte les notes non modifiées
+                            
+                            function ValCheck(valeur) {
+                                console.log("coucou");
+
+                                if(valeur.checked == true){
+                                    valeur.parentNode.parentNode.querySelector(".chk").querySelector("input").disabled = false;
+                                }else {
+                                    valeur.parentNode.parentNode.querySelector(".chk").querySelector("input").disabled = true;
+                                }
+
+                            }
+
+                    </script>
+
+                            
+
+
+                        </tbody>
+
+                   </table>
+                    <!-- -->
+                    <!-- -->
+                    
+                     <input type="submit" name="Valider" value="valider">
+
+        </form>
     </div>
 
+
+     <!-- Div principale -->
+        <div id="Div2" name="Div2" class="DivArticle">
+            <!-- -->
+            <!-- -->
+
+            <h1 id="Title3" name="Title3" class="Title_A">Exercice</h1>
+            <!-- -->
+            <!-- -->
+
+            <h2 id="Title4" name="Title4" class="Title_B"></h2>
+            <!-- -->
+            <!-- -->
+            <pre id="P2" name="P2" class="parag"> </pre>
+
+
+            
+
+            <!-- -->
+            <!-- -->
+           
+                   <table class="table table-striped">
+                       <thead>
+                            <th class="tpTab">
+                                Matière
+                            </th>
+
+
+                            <th class="tpTab">
+                                Etudiant.e
+                            </th>
+
+
+                            <th class="tpTab">
+                                Moyenne
+                            </th>
+                           
+                       </thead>
+                       <!-- -->
+                        <!-- -->
+                        <tbody>
+
+                            <?php  ///---/// 
+
+                            $reqP= 'SELECT NOM, PRENOM, LBLLMTR, AVG(VALEUR) AS MOYENNE
+                                     FROM user, matiere, note
+                                     WHERE matiere.IDMTR = note.IDMTR
+                                     AND user.IDUSR = note.IDUSR
+                                     GROUP BY matiere.IDMTR, user.IDUSR
+                                     ORDER BY NOM ASC';
+
+
+                            foreach ($connexionBDD->query($reqP) as $row) {
+                                echo "
+                    
+                                    <tr>
+                                        <td class=\"tpTab\">
+
+
+                                            ".$row['LBLLMTR']."              
+                                        </td> ";
+
+                                echo "
+                    
+                                        
+                                            <td class=\"tpTab\">
+
+
+                                                ".$row['NOM']." ".$row['PRENOM']."              
+                                            </td> "; 
+
+
+
+                                echo "
+                    
+                                        
+                                            <td class=\"tpTab\">
+
+                                                ".$row['MOYENNE']." 
+                                                               
+                                             </td>"; 
+
+                                             //td class chk -> ne peut pas être modifié
+                              
+
+                            }
+
+
+
+
+
+
+                    ?> 
+
+                            
+
+
+                        </tbody>
+
+                   </table>
+                    <!-- -->
+                    <!-- -->
+                    
+              
+    </div>
 
 
    
