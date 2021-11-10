@@ -41,8 +41,12 @@
             opacity: 50%;
         }
 
-        .t1:nth-child(even) {background: #006064}
-        .t1:nth-child(odd) {background: #00BFA5}
+        .t1:nth-child(even) {background-color: #006064}
+        .t1:nth-child(odd) {background-color: #00BFA5}
+
+        .t2{
+           background-color: black;
+        }
 
 
     </style>
@@ -226,22 +230,22 @@
             <form action="" method="post">
                    <table class="table table-striped">
                        <thead>
-                            <th class="tpTab">
+                            <th class="tpTab t2">
                                 Matière
                             </th>
 
 
-                            <th class="tpTab">
+                            <th class="tpTab t2">
                                 Etudiant.e
                             </th>
 
 
-                            <th class="tpTab">
+                            <th class="tpTab t2">
                                 Note
                             </th>
 
 
-                            <th class="tpTab">
+                            <th class="tpTab t2">
                                 Editer
                             </th>
                            
@@ -368,17 +372,17 @@
            
                    <table class="table table-striped">
                        <thead>
-                            <th class="tpTab">
+                            <th class="tpTab t2">
                                 Matière
                             </th>
 
 
-                            <th class="tpTab">
+                            <th class="tpTab t2">
                                 Etudiant.e
                             </th>
 
 
-                            <th class="tpTab">
+                            <th class="tpTab t2">
                                 Moyenne
                             </th>
                            
@@ -401,7 +405,7 @@
                                 echo "
                     
                                     <tr>
-                                        <td class=\"tpTab\">
+                                        <td class=\"tpTab t1\">
 
 
                                             ".$row['LBLLMTR']."              
@@ -410,7 +414,7 @@
                                 echo "
                     
                                         
-                                            <td class=\"tpTab\">
+                                            <td class=\"tpTab t1\">
 
 
                                                 ".$row['NOM']." ".$row['PRENOM']."              
@@ -421,7 +425,7 @@
                                 echo "
                     
                                         
-                                            <td class=\"tpTab\">
+                                            <td class=\"tpTab t1\">
 
                                                 ".$row['MOYENNE']." 
                                                                
