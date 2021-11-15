@@ -28,7 +28,7 @@
     <link href='https://fonts.googleapis.com/css?family=Pacifico:400' rel='stylesheet' type='text/css'>
 
     <style >
-        /*concerne tableau*/
+        /*concerne tableau exo 1*/
     .tpTab, .t1{
 
             border:3px solid black;
@@ -48,6 +48,31 @@
            background-color: black;
         }
 
+        /*concerne tableau exo 1*/
+        table{
+
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        th, td{
+                 border:3px solid black;
+
+        }
+
+        tr{
+
+            border:3px solid black;
+            padding: 4% 2%;
+        }
+
+
+        tr:hover {
+            border: 1px solid black;
+            opacity: 50%;
+        }
+
+        tr:nth-child(even) {background-color: #006064}
+        tr:nth-child(odd) {background-color: #00BFA5}
 
     </style>
 
@@ -216,7 +241,7 @@
             <!-- -->
             <!-- -->
 
-            <h2 id="Title2" name="Title2" class="Title_B"></h2>
+            <h2 id="Title2" name="Title2" class="Title_B"> Exercice 1 partie 1</h2>
             <!-- -->
             <!-- -->
             <pre id="P1" name="P1" class="parag"> </pre>
@@ -349,7 +374,7 @@
     </div>
 
 
-     <!-- Div principale -->
+     <!-- Div 2 -->
         <div id="Div2" name="Div2" class="DivArticle">
             <!-- -->
             <!-- -->
@@ -358,7 +383,7 @@
             <!-- -->
             <!-- -->
 
-            <h2 id="Title4" name="Title4" class="Title_B"></h2>
+            <h2 id="Title4" name="Title4" class="Title_B">Exercice 1 partie 2</h2>
             <!-- -->
             <!-- -->
             <pre id="P2" name="P2" class="parag"> </pre>
@@ -453,6 +478,38 @@
                     
               
     </div>
+
+
+    <!-- Div 3 -->
+        <div id="Div3" name="Div3" class="DivArticle">
+            <!-- -->
+            <!-- -->
+
+            <h1 id="Title3" name="Title3" class="Title_A">Tableau Moyenne</h1>
+            <!-- -->
+            <!-- -->
+
+            <h2 id="Title4" name="Title4" class="Title_B">Exercice 2</h2>
+
+            <!-- -->
+            <!-- -->
+
+            
+
+
+                   
+                    
+            <!-- -->
+            <!-- -->
+    </div>
+
+    <?php 
+            //Nom fonction
+            createTable();
+
+
+
+            ?>
 
 
    

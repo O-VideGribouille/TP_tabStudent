@@ -118,7 +118,7 @@
 			<!-- -->
 			<!-- -->
 
-			<h2 id="Title2" name="Title2" class="Title_B">Créer une page intranet</h2>
+			<h2 id="Title2" name="Title2" class="Title_B">Ex 1 :Créer une page intranet</h2>
 			<!-- -->
 			<!-- -->
 			<pre id="P1" name="P1" class="parag">Page de connexion prof/élève.
@@ -129,6 +129,20 @@
 			style qui change au survol de la ligne
 
 			* Editer permet de mettre à jour la note de l'étudiant/matière, la note étan obligatoire
+				
+			</pre>
+
+			<h2 id="Title3" name="Title3" class="Title_B">Ex 2 : Faire un tableau en DOM</h2>
+			<pre id="P1" name="P1" class="parag">Sur la base du tableau des moyennes (PDO)
+
+*fonctions (pas de requêtes ecrites en vrac dans le code) :
+*mise en forme du tableau : surligner / couleur de fond ...
+	les lignes ° > 14
+			   ° > 10
+			   ° < 10
+
+*tableau généré en DOM
+			
 				
 			</pre>
 
