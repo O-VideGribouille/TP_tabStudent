@@ -74,7 +74,7 @@
 
     ";
 
-       $reqP2= 'SELECT NOM, PRENOM, LBLLMTR, AVG(VALEUR) AS MOYENNE
+       $reqP2= 'SELECT NOM, PRENOM, LBLLMTR, ROUND(AVG(VALEUR)) AS MOYENNE
                                      FROM user, matiere, note
                                      WHERE matiere.IDMTR = note.IDMTR
                                      AND user.IDUSR = note.IDUSR
@@ -102,17 +102,17 @@
 
                      if ($row['MOYENNE'] >= 14 ) {
                         echo " console.log(\"Moyenne 14 ou +\");
-                        row_2.style.background = \" green \";";
+                        row_2_data_3.style.background = \" green \";";
                       }
                       else if ($row['MOYENNE'] >= 10 ) {
                          
                         echo "console.log(\"Moyenne 10 ou +\");
-                        row_2.style.background = \" orange \";";
+                        row_2_data_3.style.background = \" orange \";";
                       } 
                       else if ($row['MOYENNE'] <= 10 ) {
                          
                         echo "console.log(\"Moyenne 10 ou -\");
-                        row_2.style.background = \" red \";";
+                        row_2_data_3.style.background = \" red \";";
                       }
 
 
